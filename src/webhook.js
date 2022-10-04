@@ -70,11 +70,11 @@ function handleMessage(senderPsid, receivedMessage) {
    let response
 
    // Checks if the message contains text
-   if (receivedMessage.text) {
+   if (receivedMessage.text === 'شو يا لوطي') {
       // Create the payload for a basic text message, which
       // will be added to the body of your request to the Send API
       response = {
-         text: 'هلا حبيبي شلونك',
+         text: 'شو يا لوطي',
       }
    } else if (receivedMessage.attachments) {
       // Get the URL of the message attachment
