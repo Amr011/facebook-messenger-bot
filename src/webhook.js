@@ -77,30 +77,11 @@ function handleMessage(senderPsid, receivedMessage) {
    var botRes = msgResponses[Math.floor(Math.random() * msgResponses.length)]
 
    // Checks if the message contains text
-   switch (receivedMessage.text) {
-      case receivedMessage.text == 'hi':
-         response = {
-            text: botRes,
-         }
-      case receivedMessage.text == 'Hello':
-         response = {
-            text: botRes,
-         }
-      case receivedMessage.text == 'Good morning':
-         response = {
-            text: botRes,
-         }
-         break
-
-      default:
-         break
-   }
-   // Checks if the message contains text
    if (receivedMessage.text === 'شو يا لوطي') {
       // Create the payload for a basic text message, which
       // will be added to the body of your request to the Send API
       response = {
-         text: 'شو يا لوطي',
+         text: botRes,
       }
    }
 
