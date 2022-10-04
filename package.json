@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon src/index.js"
+        "start": "node src/webhook.js"
     },
     "keywords": [],
     "author": "amr011",
