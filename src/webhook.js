@@ -28,8 +28,6 @@ app.post('/webhook', (req, res) => {
          // pass the event to the appropriate handler function
          if (webhookEvent.message) {
             handleMessage(senderPsid, webhookEvent.message)
-         } else if (webhookEvent.postback) {
-            handlePostback(senderPsid, webhookEvent.postback)
          }
       })
 
@@ -77,7 +75,11 @@ function handleMessage(senderPsid, receivedMessage) {
    var botRes = msgResponses[Math.floor(Math.random() * msgResponses.length)]
 
    // Checks if the message contains text
-   if (receivedMessage.text === 'شو يا لوطي') {
+   if (
+      receivedMessage.text == 'Hi' ||
+      receivedMessage.text == 'Hello' ||
+      receivedMessage.text == 'Good morning'
+   ) {
       // Create the payload for a basic text message, which
       // will be added to the body of your request to the Send API
       response = {
@@ -86,23 +88,6 @@ function handleMessage(senderPsid, receivedMessage) {
    }
 
    // Send the response message
-   callSendAPI(senderPsid, response)
-}
-
-// Handles messaging_postbacks events
-function handlePostback(senderPsid, receivedPostback) {
-   let response
-
-   // Get the payload for the postback
-   let payload = receivedPostback.payload
-
-   // Set the response based on the postback payload
-   if (payload === 'yes') {
-      response = { text: 'Thanks!' }
-   } else if (payload === 'no') {
-      response = { text: 'Oops, try sending another image.' }
-   }
-   // Send the message to acknowledge the postback
    callSendAPI(senderPsid, response)
 }
 
