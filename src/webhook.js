@@ -73,38 +73,8 @@ function handleMessage(senderPsid, receivedMessage) {
    if (receivedMessage.text) {
       // Create the payload for a basic text message, which
       // will be added to the body of your request to the Send API
-      // response = {
-      //   'text': `Tjena! Hvordan føler du deg?`
-      // };
       response = {
-         text: 'Tjena! Hvordan føler du deg?',
-         quick_replies: [
-            {
-               content_type: 'text',
-               title: '1',
-               payload: '1',
-            },
-            {
-               content_type: 'text',
-               title: '2',
-               payload: '2',
-            },
-            {
-               content_type: 'text',
-               title: '3',
-               payload: '3',
-            },
-            {
-               content_type: 'text',
-               title: '4',
-               payload: '4',
-            },
-            {
-               content_type: 'text',
-               title: '5',
-               payload: '5',
-            },
-         ],
+         text: 'هلا حبيبي شلونك',
       }
    } else if (receivedMessage.attachments) {
       // Get the URL of the message attachment
