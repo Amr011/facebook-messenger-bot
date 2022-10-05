@@ -91,12 +91,15 @@ function handleMessage(senderPsid, receivedMessage) {
          text: botRes,
       }
    } else {
-      if (
-         cmdCheck(receivedMessage.text) !== false &&
-         cmdCommandCheck(cmdCheck(receivedMessage.text)) !== false
-      ) {
-         response = {
-            text: cmdCommandCheck(cmdCheck(receivedMessage.text)),
+      if (cmdCheck(receivedMessage.text) !== false) {
+         if (cmdCommandCheck(cmdCheck(receivedMessage.text)) !== false) {
+            response = {
+               text: cmdCommandCheck(cmdCheck(receivedMessage.text)),
+            }
+         } else {
+            response = {
+               text: 'your command is not valid!',
+            }
          }
       }
    }
