@@ -2,7 +2,6 @@
 .vscode
 .env
 dist
-src/test
 node_modules
 build
 tmp

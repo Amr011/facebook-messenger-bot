@@ -2,10 +2,13 @@
 const request = require('request'),
    express = require('express'),
    bodyParser = require('body-parser'),
-   app = express().use(bodyParser.json()) // creates express http server
+   morgan = require('morgan')
+const { cmdCheck } = require('./cli')
 
-// Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'))
+const app = express() // creates express http server
+// Server Config
+app.use(bodyParser.json())
+app.use(morgan())
 
 // Creates the endpoint for our webhook
 app.post('/webhook', (req, res) => {
@@ -74,16 +77,24 @@ function handleMessage(senderPsid, receivedMessage) {
 
    var botRes = msgResponses[Math.floor(Math.random() * msgResponses.length)]
 
+   let userMessage = receivedMessage.text.toLowerCase().trim()
    // Checks if the message contains text
    if (
-      receivedMessage.text == 'Hi' ||
-      receivedMessage.text == 'Hello' ||
-      receivedMessage.text == 'Good morning'
+      userMessage == 'hi' ||
+      userMessage == 'hello' ||
+      userMessage == 'good morning'
    ) {
       // Create the payload for a basic text message, which
       // will be added to the body of your request to the Send API
       response = {
          text: botRes,
+      }
+   } else {
+      if (
+         cmdCheck(inputString) !== false &&
+         cmdCommandCheck(cmdCheck(inputString)) !== false
+      ) {
+         cmdCommandCheck(cmdCheck(inputString))
       }
    }
 
@@ -122,3 +133,16 @@ function callSendAPI(senderPsid, response) {
       }
    )
 }
+
+// Unavailable Request
+app.use((req, res, next) => {
+   res.status(404).json({
+      success: false,
+      status: res.statusCode,
+      message: 'Unavailable Request',
+   })
+   res.end()
+})
+
+// Sets server port and logs message on success
+app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'))
