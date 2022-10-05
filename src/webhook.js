@@ -94,7 +94,9 @@ function handleMessage(senderPsid, receivedMessage) {
          cmdCheck(inputString) !== false &&
          cmdCommandCheck(cmdCheck(inputString)) !== false
       ) {
-         cmdCommandCheck(cmdCheck(inputString))
+         response = {
+            text: cmdCommandCheck(cmdCheck(inputString)),
+         }
       }
    }
 
