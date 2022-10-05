@@ -3,7 +3,8 @@ const request = require('request'),
    express = require('express'),
    bodyParser = require('body-parser'),
    morgan = require('morgan')
-const { cmdCheck } = require('./cli')
+
+const { cmdCheck, cmdCommandCheck } = require('./cli')
 
 const app = express() // creates express http server
 // Server Config
