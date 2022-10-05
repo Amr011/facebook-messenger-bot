@@ -91,11 +91,11 @@ function handleMessage(senderPsid, receivedMessage) {
       }
    } else {
       if (
-         cmdCheck(inputString) !== false &&
-         cmdCommandCheck(cmdCheck(inputString)) !== false
+         cmdCheck(receivedMessage.text) !== false &&
+         cmdCommandCheck(cmdCheck(receivedMessage.text)) !== false
       ) {
          response = {
-            text: cmdCommandCheck(cmdCheck(inputString)),
+            text: cmdCommandCheck(cmdCheck(receivedMessage.text)),
          }
       }
    }
