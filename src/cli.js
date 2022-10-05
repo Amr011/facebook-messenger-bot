@@ -19,7 +19,7 @@ function cmdCheck(str = '') {
          str.length > 0 && // check if string exist
          str.includes('/') && // check if string includes "/"
          str.indexOf('/') == 0 && // check if it's a command
-         str.split(' ').length > 1 // check if the commands include a value
+         str.split(' ').length == 1 // check if the commands include a value
       ) {
          return {
             // return an object with the command input and the value
@@ -38,17 +38,23 @@ function cmdCommandCheck(obj) {
       // Check if it's price command
       if (obj.command == 'price') {
          if (findMatchedProduct(parseInt(obj.value))) {
-            return findMatchedProduct(parseInt(obj.value)).price // if true return price
+            return `${findMatchedProduct(parseInt(obj.value)).title}\n Price:${
+               findMatchedProduct(parseInt(obj.value)).price
+            }` // if true return price
          } else return false
          // Check if it's description command
       } else if (obj.command == 'desc') {
          if (findMatchedProduct(parseInt(obj.value))) {
-            return findMatchedProduct(parseInt(obj.value)).desc // if true retrun description
+            return `${
+               findMatchedProduct(parseInt(obj.value)).title
+            }\n Description:${findMatchedProduct(parseInt(obj.value)).desc}` // if true retrun description
          } else return false
          // Check if it's shipping command
       } else if (obj.command == 'shipping') {
          if (findMatchedProduct(parseInt(obj.value))) {
-            return findMatchedProduct(parseInt(obj.value)).shipping // if true return shipping cost
+            return `${
+               findMatchedProduct(parseInt(obj.value)).title
+            }\n Shipping:${findMatchedProduct(parseInt(obj.value)).shipping}` // if true return shipping cost
          } else return false
          // Check if it's buy command
       } else if (obj.command == 'buy') {
