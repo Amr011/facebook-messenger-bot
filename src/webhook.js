@@ -8,7 +8,7 @@ const { cmdCheck } = require('./cli')
 const app = express() // creates express http server
 // Server Config
 app.use(bodyParser.json())
-app.use(morgan())
+app.use(morgan('dev'))
 
 // Creates the endpoint for our webhook
 app.post('/webhook', (req, res) => {
