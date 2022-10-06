@@ -18,11 +18,11 @@ async function sendEmail(data) {
          subject: 'New order received!',
          html: `
         <h2>Product Details</h2>
-        <b>Product Id: </b> ${data.id}
-        <b>Product Title:</b> ${data.title}
-        <b>Product Description:</b> ${data.desc}
-        <b>Product Price:</b> ${data.price}
-        <b>Product Shipping Fee:</b> ${data.shipping}
+        <p><b>Product Id: </b> ${data.id} </p>
+        <p><b>Product Title:</b> ${data.title} </p>
+        <p><b>Product Description:</b> ${data.desc} </p>
+        <p><b>Product Price:</b> ${data.price} </p>
+        <p><b>Product Shipping Fee:</b> ${data.shipping} </p>
         `,
       })
    } catch (error) {
