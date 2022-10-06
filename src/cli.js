@@ -19,7 +19,7 @@ function cmdCheck(str = '') {
          str.length > 0 && // check if string exist
          str.includes('/') && // check if string includes "/"
          str.indexOf('/') == 0 && // check if it's a command
-         str.split(' ').length > 1 // check if the commands include a value
+         str.split(' ').length > 2 // check if the commands include a value
       ) {
          return {
             // return an object with the command input and the value
