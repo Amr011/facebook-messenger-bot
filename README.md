@@ -10,7 +10,7 @@ $ npm install
 
 ### to run the code
 
-for running in development mode
+for running the server
 
 ```
 $ npm start
