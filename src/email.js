@@ -18,7 +18,11 @@ async function sendEmail(data) {
          subject: 'New order received!',
          html: `
         <h2>Product Details</h2>
-        <pre>${JSON.parse(data)}</pre>
+        <b>Product Id: </b> ${data.id}
+        <b>Product Title:</b> ${data.title}
+        <b>Product Description:</b> ${data.desc}
+        <b>Product Price:</b> ${data.price}
+        <b>Product Shipping Fee:</b> ${data.shipping}
         `,
       })
    } catch (error) {
