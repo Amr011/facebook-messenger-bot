@@ -1,16 +1,16 @@
 ## FACEBOOK MESSENGER BOT
 
-## Installation Instructions
+### Installation Instructions
 
-install dependencies first
+to install dependencies
 
 ```
 $ npm install
 ```
 
-### Commands you can run the code with
+### to run the code
 
-for running in development mode
+for running the server
 
 ```
 $ npm start
